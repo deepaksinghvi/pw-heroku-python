@@ -1,0 +1,14 @@
+FROM deepaksinghvi/playwright-python-docker:1
+
+ADD . /app
+
+WORKDIR /app
+
+# Copy the script into the container
+COPY entrypointscript.sh .
+
+# Make the script executable
+RUN chmod +x entrypointscript.sh
+
+# Set the entrypoint to execute the script
+ENTRYPOINT ["./entrypointscript.sh"]
